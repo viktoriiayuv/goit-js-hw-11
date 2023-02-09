@@ -35,7 +35,7 @@ async function onFormSubmit(event) {
 
     Notify.success(`Hooray! We found ${images.totalHits} images.`);
     renderListElements(images.hits, galleryEl);
-    simpleLightBox = new SimpleLightbox('.gallery a').refresh();
+    new SimpleLightbox('.gallery a').refresh();
 
     totalPages = Math.ceil(images.totalHits / 40);
     if (totalPages > 1) {
@@ -59,7 +59,7 @@ async function onLoadMoreBtnClick() {
   try {
     const images = await getImages(query, page);
     renderListElements(images.hits, galleryEl);
-    simpleLightBox = new SimpleLightbox('.gallery a').refresh();
+    new SimpleLightbox('.gallery a').refresh();
     scrollPage();
   } catch (error) {
     console.log(error);
